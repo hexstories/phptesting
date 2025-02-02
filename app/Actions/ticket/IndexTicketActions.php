@@ -1,11 +1,10 @@
-
 <?php
 
-namespace App\Actions\Ticket;
+namespace App\Actions\ticket;
 
 use Illuminate\Support\Facades\Auth;
 
-class IndexTicketsAction
+class IndexTicketActions
 {
     public function execute()
     {
