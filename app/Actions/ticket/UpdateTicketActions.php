@@ -26,3 +26,4 @@ class UpdateTicketAction
         return $ticket;
     }
 }
+

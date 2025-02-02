@@ -1,18 +1,14 @@
 <?php
 
+
 namespace App\Actions\Ticket;
 
 use App\Models\Ticket;
-use Illuminate\Support\Facades\Auth;
 
-class ShowTicketAction
+class ShowTicketActions
 {
-    public function execute(Ticket $ticket): Ticket
+    public function execute(Ticket $ticket)
     {
-        if ($ticket->user_id !== Auth::id()) {
-            abort(403, 'Unauthorized');
-        }
-
         return $ticket;
     }
 }

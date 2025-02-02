@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Actions\ticket;
 
-use Illuminate\Support\Facades\Auth;
+namespace App\Actions\Ticket;
+
+use App\Models\Ticket;
 
 class IndexTicketActions
 {
-    public function execute()
-    {
-        return Auth::user()->tickets;
-    }
+public function execute()
+{
+return Ticket::all();
+}
 }
