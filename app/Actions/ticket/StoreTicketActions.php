@@ -12,23 +12,25 @@ class StoreTicketActions
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
+            'status' => 'nullable|string|in:open,in_progress,closed',
+            'priority' => 'nullable|string|in:low,medium,high',
+            'category' => 'nullable|string|in:bug,feature_request,support',
         ]);
-
-//        return Ticket::create([
-//            'title' => $request->title,
-//            'description' => $request->description,
-//            'user_id' => auth()->id(),
-//        ]);
-//
-//    }
-//}
 
 $ticket = Ticket::create([
     'title' => $request->title,
     'description' => $request->description,
-    'user_id' => auth()->id(), // Assuming you're using authentication
+    'status' => $request->status ?? 'open',
+    'priority' => $request->priority ?? 'medium',
+    'category' => $request->category ?? 'general', 
+    'user_id' => auth()->id(),
 ]);
 
 return response()->json($ticket, 201);
 }
 }
+
+
+
+
+

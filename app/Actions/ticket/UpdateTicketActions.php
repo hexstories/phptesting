@@ -18,7 +18,9 @@ class UpdateTicketAction
         $data = $request->validate([
             'title' => 'sometimes|string|max:255',
             'description' => 'sometimes|string',
-            'status' => ['sometimes', Rule::in(['open', 'in_progress', 'closed'])],
+            'status' => 'sometimes|string|in:open,in_progress,closed',
+            'priority' => 'sometimes|string|in:low,medium,high',
+            'category' => 'sometimes|string|in:bug,feature_request,support',
         ]);
 
         $ticket->update($data);
@@ -26,4 +28,5 @@ class UpdateTicketAction
         return $ticket;
     }
 }
+
 
