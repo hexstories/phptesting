@@ -22,7 +22,7 @@ $ticket = Ticket::create([
     'description' => $request->description,
     'status' => $request->status ?? 'open',
     'priority' => $request->priority ?? 'medium',
-    'category' => $request->category ?? 'general', 
+    'category' => $request->category ?? 'general',
     'user_id' => auth()->id(),
 ]);
 
