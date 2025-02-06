@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('status')->default('open');
+            $table->string('priority')->default('medium');
+            $table->string('category')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
